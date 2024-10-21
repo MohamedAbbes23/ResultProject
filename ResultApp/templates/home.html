@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .result-card {
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            margin-top: 20px;
+        }
+        .result-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bg-success {
+            background-color: #28a745 !important;
+        }
+        .bg-danger {
+            background-color: #dc3545 !important;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    {% if user.is_authenticated %}
+        {% if user.profile.mark %}
+        <div class="result-card card text-center {% if user.profile.mark >= 10 %}bg-success text-white{% else %}bg-danger text-white{% endif %} show">
+          <div class="card-body">
+                    <h5 class="card-title">{{ user.first_name }}</h5>
+                    <h5 class="card-title">{{ user.last_name }}</h5>
+                    <p class="card-text">Mark: {{ user.profile.mark }}</p>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                No result available.
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'register' %}">create a new account</a> to view your results.
+        </div>
+    {% endif %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
