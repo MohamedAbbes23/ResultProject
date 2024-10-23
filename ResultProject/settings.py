@@ -119,6 +119,9 @@ CSRF_TRUSTED_ORIGINS = [
     'https://web-production-b334d.up.railway.app/',  # Add your production URL here
 ]
 
+CSRF_COOKIE_SECURE = True  # If using HTTPS
+CSRF_COOKIE_HTTPONLY = True
+CSRF_USE_SESSIONS = False  # Set to True if you want to use sessions for CSRF
 
 
 
