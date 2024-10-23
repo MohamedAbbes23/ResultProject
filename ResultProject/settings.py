@@ -115,7 +115,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-b334d.up.railway.app/',  # Add your production URL here
+    ‘https://*.railway.app’
 ]
 
 CSRF_COOKIE_SECURE = True  # If using HTTPS
