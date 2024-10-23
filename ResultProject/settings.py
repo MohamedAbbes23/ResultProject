@@ -114,6 +114,14 @@ STATICFILES_DIRS = [
 # The directory where static files will be collected to when you run collectstatic
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-b334d.up.railway.app/',  # Add your production URL here
+]
+
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
